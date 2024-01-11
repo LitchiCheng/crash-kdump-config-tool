@@ -1,0 +1,11 @@
+[Unit]
+Description=No
+
+[Service]
+Type=oneshot
+StandardOutput=syslog+console
+ExecStart=kexec -p --command-line="root=/dev/mmcblk0p2 ro rootwait console=ttyLP3 reset_devices systemd.unit=kdump-tools-dump.service nr_cpus=1" /media/mmcblk0p1/Image.gz
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
