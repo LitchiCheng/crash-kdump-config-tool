@@ -1,0 +1,12 @@
+[Unit]
+Description=No
+After=usr-local-etc-.SeerRobotics-rbk-diagnosis-log.mount
+
+[Service]
+Type=oneshot
+StandardOutput=syslog+console
+ExecStart=/home/sr/kexec.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
